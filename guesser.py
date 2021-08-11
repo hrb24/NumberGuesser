@@ -6,10 +6,32 @@
 import random
 def main():
     #Initialize the program
-    print("Guess a number between 1 and 100.")
-    # randomNumber = 35 for debugging only
-    randomNumber = random.randint(1,100)
-    # print("The random number is: ", randomNumber)
+    print("Welcome to the Random Number Guesser!")
+    print("Between which two values do you want to guess?")
+    print("Lower bound: ")
+    lowerBound = int(input())
+    print("Upper bound: ")
+    upperBound = int(input())
+    
+    # Output the value range for the user
+    print("You will be guessing between ", lowerBound, " and ", upperBound)
+    
+    # Call function randomNumber using upper and lower bound parameters
+    # Assign the return value to randInt
+    randInt = randomNumber(lowerBound, upperBound)
+    
+    # Call Guesser function to loop through guessing process
+    guesser(randInt)
+    
+    #Print congratulations and goodbye
+    print("Thanks for playing our game!")
+    
+    
+def randomNumber(lower, upper):
+    randomNumber = random.randint(lower,upper)
+    return randomNumber
+    
+def guesser(randomNumber):
     # Create a boolean variable to note if random number is guessed or not
     found = False
     
@@ -23,11 +45,7 @@ def main():
             print("Guess lower!")
         else:
             print("Guess higher!")
-        
-    #Print congratulations and goodbye
-    print("Thanks for playing our game!")
     
 if (__name__ == "__main__"):
     main()
-
 
